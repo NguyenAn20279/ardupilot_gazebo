@@ -1,0 +1,41 @@
+# X500 is X frame quadcopter
+FRAME_CLASS      1
+FRAME_TYPE       1
+
+# Match servo out for motors
+MOT_PWM_MIN      1100
+MOT_PWM_MAX      1900
+
+# Disable pre-arm checks for SITL (EKF/GPS not required to arm)
+ARMING_CHECK     0
+
+# Use primary compass for heading (magnetometer_sensor in model)
+# COMPASS_USE2/3 disabled — only one mag in x500 SDF
+COMPASS_USE      1
+COMPASS_USE2     0
+COMPASS_USE3     0
+
+# ── Attitude rate PIDs scaled for x500 dynamics ──────────────────────────────
+# x500 vs iris analysis:
+#   Roll/Pitch sensitivity: 2.09x higher  (body Ixx=0.0217 vs iris 0.0348)
+#   Yaw sensitivity:        3.93x higher  (body Izz=0.040  vs iris 0.098,
+#                                          and larger drag arm cp=0.1 vs 0.084)
+# → All rate PID gains scaled down by the sensitivity ratio.
+
+# Roll rate PID  (iris default 0.135/0.135/0.003  × 0.479)
+ATC_RAT_RLL_P    0.065
+ATC_RAT_RLL_I    0.065
+ATC_RAT_RLL_D    0.0015
+
+# Pitch rate PID  (iris default 0.135/0.135/0.003  × 0.479)
+ATC_RAT_PIT_P    0.065
+ATC_RAT_PIT_I    0.065
+ATC_RAT_PIT_D    0.0015
+
+# Yaw rate PID   (iris default 0.18/0.018/0.0   × 0.254)
+ATC_RAT_YAW_P    0.046
+ATC_RAT_YAW_I    0.0046
+ATC_RAT_YAW_D    0.000
+
+# Hover throttle: x500 needs ~48% vs iris ~42% (heavier + same motors)
+MOT_THST_HOVER   0.48
