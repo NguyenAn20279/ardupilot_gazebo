@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version='1.9'>
+  <model name='arm'>
+    <self_collide>false</self_collide>
+    <static>false</static>
+
+    <!-- Arm mount point -->
+    <link name="arm_base_link">
+      <pose>0 0 -0.0667 0 0 0</pose>
+      <inertial>
+        <pose>0.0 -0.0026 -0.01845 0 0 0</pose>
+        <mass>0.049</mass>
+        <inertia>
+          <ixx>5.575983e-05</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>4.514122e-05</iyy>
+          <iyz>3.63852e-06</iyz>
+          <izz>5.104692e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name="arm_base_visual">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>package://ardupilot_gazebo/models/arm/meshes/arm_base.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>.175 .175 .175 1.0</ambient>
+          <diffuse>.175 .175 .175 1.0</diffuse>
+          <specular>.175 .175 .175 1.0</specular>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Arm link shoulder -->
+    <link name="arm_shoulder_link">
+      <pose>0 0 -0.1237 0 0 0</pose>
+      <inertial>
+        <pose>0.0619 0.00051 -0.01092 0 0 0</pose>
+        <mass>0.08114</mass>
+        <inertia>
+          <ixx>5.496067e-05</ixx>
+          <ixy>1.836256e-05</ixy>
+          <ixz>-3.140578e-05</ixz>
+          <iyy>1.9457412e-04</iyy>
+          <iyz>-3.23771e-06</iyz>
+          <izz>2.2765237e-04</izz>
+        </inertia>
+      </inertial>
+      <visual name='arm_shoulder_visual'>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>package://ardupilot_gazebo/models/arm/meshes/arm_shoulder.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>.175 .175 .175 1.0</ambient>
+          <diffuse>.175 .175 .175 1.0</diffuse>
+          <specular>.175 .175 .175 1.0</specular>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Joint 1: shoulder (pitch axis) -->
+    <joint name="shoulder_joint" type="revolute">
+      <parent>arm_base_link</parent>
+      <child>arm_shoulder_link</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit><lower>0</lower><upper>3.14</upper></limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0.05</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- Arm link elbow -->
+    <link name="arm_elbow_link">
+      <pose>0.13 0 -0.1237 0 0 0</pose>
+      <inertial>
+        <pose>0.08459 -0.00001 -0.01509 0 0 0</pose>
+        <mass>0.09235</mass>
+        <inertia>
+          <ixx>6.786067e-05</ixx>
+          <ixy>1.53393e-06</ixy>
+          <ixz>-1.658904e-05</ixz>
+          <iyy>1.1011205e-04</iyy>
+          <iyz>-2.2074e-07</iyz>
+          <izz>1.5666023e-04</izz>
+        </inertia>
+      </inertial>
+      <visual name='arm_elbow_visual'>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>package://ardupilot_gazebo/models/arm/meshes/arm_elbow.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>.175 .175 .175 1.0</ambient>
+          <diffuse>.175 .175 .175 1.0</diffuse>
+          <specular>.175 .175 .175 1.0</specular>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Joint 2: elbow (pitch axis) -->
+    <joint name="elbow_joint" type="revolute">
+      <parent>arm_shoulder_link</parent>
+      <child>arm_elbow_link</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit><lower>-1.57</lower><upper>1.57</upper></limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0.05</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+  </model>
+</sdf>

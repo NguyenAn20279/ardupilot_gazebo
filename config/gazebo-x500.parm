@@ -39,3 +39,13 @@ ATC_RAT_YAW_D    0.000
 
 # Hover throttle: x500 needs ~48% vs iris ~42% (heavier + same motors)
 MOT_THST_HOVER   0.48
+
+# ── Arm servo outputs (FUNCTION=0: disabled, control via DO_SET_SERVO) ───
+SERVO9_FUNCTION   0
+SERVO9_MIN        1100
+SERVO9_MAX        1900
+SERVO9_TRIM       1100
+SERVO10_FUNCTION  0
+SERVO10_MIN       1100
+SERVO10_MAX       1900
+SERVO10_TRIM      1500
