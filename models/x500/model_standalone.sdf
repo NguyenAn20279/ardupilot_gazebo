@@ -33,7 +33,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://ardupilot_gazebo/models/x500_base/meshes/NXP-HGD-CF.dae</uri>
+            <uri>model://x500_base/meshes/NXP-HGD-CF.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -42,7 +42,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://ardupilot_gazebo/models/x500_base/meshes/5010Base.dae</uri>
+            <uri>model://x500_base/meshes/5010Base.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -51,7 +51,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://ardupilot_gazebo/models/x500_base/meshes/5010Base.dae</uri>
+            <uri>model://x500_base/meshes/5010Base.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -60,7 +60,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://ardupilot_gazebo/models/x500_base/meshes/5010Base.dae</uri>
+            <uri>model://x500_base/meshes/5010Base.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -69,7 +69,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://ardupilot_gazebo/models/x500_base/meshes/5010Base.dae</uri>
+            <uri>model://x500_base/meshes/5010Base.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -278,7 +278,7 @@
         <geometry>
           <mesh>
             <scale>0.8461538461538461 0.8461538461538461 0.8461538461538461</scale>
-            <uri>package://ardupilot_gazebo/models/x500_base/meshes/1345_prop_ccw.stl</uri>
+            <uri>model://x500_base/meshes/1345_prop_ccw.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -293,7 +293,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://ardupilot_gazebo/models/x500_base/meshes/5010Bell.dae</uri>
+            <uri>model://x500_base/meshes/5010Bell.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -352,7 +352,7 @@
         <geometry>
           <mesh>
             <scale>0.8461538461538461 0.8461538461538461 0.8461538461538461</scale>
-            <uri>package://ardupilot_gazebo/models/x500_base/meshes/1345_prop_ccw.stl</uri>
+            <uri>model://x500_base/meshes/1345_prop_ccw.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -367,7 +367,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://ardupilot_gazebo/models/x500_base/meshes/5010Bell.dae</uri>
+            <uri>model://x500_base/meshes/5010Bell.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -426,7 +426,7 @@
         <geometry>
           <mesh>
             <scale>0.8461538461538461 0.8461538461538461 0.8461538461538461</scale>
-            <uri>package://ardupilot_gazebo/models/x500_base/meshes/1345_prop_cw.stl</uri>
+            <uri>model://x500_base/meshes/1345_prop_cw.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -441,7 +441,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://ardupilot_gazebo/models/x500_base/meshes/5010Bell.dae</uri>
+            <uri>model://x500_base/meshes/5010Bell.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -500,7 +500,7 @@
         <geometry>
           <mesh>
             <scale>0.8461538461538461 0.8461538461538461 0.8461538461538461</scale>
-            <uri>package://ardupilot_gazebo/models/x500_base/meshes/1345_prop_cw.stl</uri>
+            <uri>model://x500_base/meshes/1345_prop_cw.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -515,7 +515,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://ardupilot_gazebo/models/x500_base/meshes/5010Bell.dae</uri>
+            <uri>model://x500_base/meshes/5010Bell.dae</uri>
           </mesh>
         </geometry>
       </visual>
