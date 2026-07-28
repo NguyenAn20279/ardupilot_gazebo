@@ -24,6 +24,9 @@
     <!-- ─── General plugins ─────────────────────────────────────────── -->
     <plugin filename="gz-sim-joint-state-publisher-system"
       name="gz::sim::systems::JointStatePublisher">
+      <!-- <mặc định = toàn bộ joint model → ROS; chỉ khi thêm <joint_name> mới thu hẹp -->
+        <!-- <joint_name>shoulder_joint</joint_name>
+        <joint_name>elbow_joint</joint_name> -->
     </plugin>
 
     <plugin
@@ -275,32 +278,28 @@
       </control>
 
       <!-- ─── Arm servo channels (FUNCTION=0, DO_SET_SERVO) ────────── -->
+      <!-- Both joints: Gazebo rad == mission rad (0…π).
+           PWM 500→0, 1500→π/2 (elbow CAD rest), 2500→π -->
 
-      <!-- AUX1 = SERVO9 = channel 8: Shoulder joint
-           Range: 0 to 3.14 rad (0° to 180°)
-           PWM 1100 → 0 rad, PWM 1900 → 3.14 rad
-           normalized [0,1] × 3.14159 = [0, 3.14] -->
+      <!-- AUX1 = SERVO9 = channel 8: Shoulder joint -->
       <control channel="8">
         <jointName>shoulder_joint</jointName>
         <multiplier>3.14159</multiplier>
         <offset>0</offset>
-        <servo_min>1100</servo_min>
-        <servo_max>1900</servo_max>
+        <servo_min>500</servo_min>
+        <servo_max>2500</servo_max>
         <type>COMMAND</type>
         <cmd_topic>/arm/cmd_shoulder</cmd_topic>
         <p_gain>2</p_gain>
       </control>
 
-      <!-- AUX2 = SERVO10 = channel 9: Elbow joint
-           Range: -1.57 to 1.57 rad (-90° to +90°)
-           PWM 1100 → -1.57, PWM 1500 → 0, PWM 1900 → +1.57
-           (normalized [0,1] + offset -0.5) × 3.14159 = [-1.57, 1.57] -->
+      <!-- AUX2 = SERVO10 = channel 9: Elbow joint -->
       <control channel="9">
         <jointName>elbow_joint</jointName>
         <multiplier>3.14159</multiplier>
-        <offset>-0.5</offset>
-        <servo_min>1100</servo_min>
-        <servo_max>1900</servo_max>
+        <offset>0</offset>
+        <servo_min>500</servo_min>
+        <servo_max>2500</servo_max>
         <type>COMMAND</type>
         <cmd_topic>/arm/cmd_elbow</cmd_topic>
         <p_gain>2</p_gain>
@@ -308,11 +307,13 @@
     </plugin>
 
     <!-- ─── JointPositionController for arm joints ──────────────────── -->
+    <!-- Spawn: shoulder 0°, elbow π/2 (CAD rest, mission 90°) -->
     <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>shoulder_joint</joint_name>
       <topic>/arm/cmd_shoulder</topic>
+      <initial_position>0</initial_position>
       <p_gain>2</p_gain>
       <i_gain>0.3</i_gain>
       <d_gain>0.3</d_gain>
@@ -325,6 +326,7 @@
       name="gz::sim::systems::JointPositionController">
       <joint_name>elbow_joint</joint_name>
       <topic>/arm/cmd_elbow</topic>
+      <initial_position>1.5708</initial_position>
       <p_gain>2</p_gain>
       <i_gain>0.3</i_gain>
       <d_gain>0.3</d_gain>
