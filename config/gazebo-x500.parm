@@ -6,8 +6,8 @@ FRAME_TYPE       1
 MOT_PWM_MIN      1100
 MOT_PWM_MAX      1900
 
-# Disable pre-arm checks for SITL (EKF/GPS not required to arm)
-ARMING_CHECK     0
+# Enable all pre-arm checks (closer to real flight; wait for EKF/GPS in SITL)
+ARMING_CHECK     1
 
 # Use primary compass for heading (magnetometer_sensor in model)
 # COMPASS_USE2/3 disabled — only one mag in x500 SDF
