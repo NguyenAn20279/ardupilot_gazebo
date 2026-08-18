@@ -278,13 +278,13 @@
       </control>
 
       <!-- ─── Arm servo channels (FUNCTION=0, DO_SET_SERVO) ────────── -->
-      <!-- Both joints: Gazebo rad == mission rad (0…π).
-           PWM 500→0, 1500→π/2 (elbow CAD rest), 2500→π -->
+      <!-- Both joints: Gazebo rad == mission rad (0…3π/2).
+           PWM 500→0, 1167→π/2 (elbow CAD rest), 1833→π, 2500→3π/2 -->
 
       <!-- AUX1 = SERVO9 = channel 8: Shoulder joint -->
       <control channel="8">
         <jointName>shoulder_joint</jointName>
-        <multiplier>3.14159</multiplier>
+        <multiplier>4.71239</multiplier>
         <offset>0</offset>
         <servo_min>500</servo_min>
         <servo_max>2500</servo_max>
@@ -296,7 +296,7 @@
       <!-- AUX2 = SERVO10 = channel 9: Elbow joint -->
       <control channel="9">
         <jointName>elbow_joint</jointName>
-        <multiplier>3.14159</multiplier>
+        <multiplier>4.71239</multiplier>
         <offset>0</offset>
         <servo_min>500</servo_min>
         <servo_max>2500</servo_max>
