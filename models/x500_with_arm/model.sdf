@@ -307,13 +307,13 @@
     </plugin>
 
     <!-- ─── JointPositionController for arm joints ──────────────────── -->
-    <!-- Spawn: shoulder 0°, elbow π/2 (CAD rest, mission 90°) -->
+    <!-- Spawn: shoulder π/2, elbow π/2 (matches mission init 90°/90°, arm straight) -->
     <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>shoulder_joint</joint_name>
       <topic>/arm/cmd_shoulder</topic>
-      <initial_position>0</initial_position>
+      <initial_position>1.5708</initial_position>
       <p_gain>2</p_gain>
       <i_gain>0.3</i_gain>
       <d_gain>0.3</d_gain>

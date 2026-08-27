@@ -42,10 +42,11 @@ MOT_THST_HOVER   0.48
 
 # ── Arm servo outputs (FUNCTION=0: disabled, control via DO_SET_SERVO) ───
 # Match mission PWM map: 500=0°, 1167=90°, 1833=180°, 2500=270°
+# TRIM both AUX to 90° (mission init / arm straight before takeoff)
 SERVO9_FUNCTION   0
 SERVO9_MIN        500
 SERVO9_MAX        2500
-SERVO9_TRIM       500
+SERVO9_TRIM       1167
 SERVO10_FUNCTION  0
 SERVO10_MIN       500
 SERVO10_MAX       2500
